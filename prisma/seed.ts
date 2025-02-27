@@ -113,39 +113,36 @@ async function up() {
       generateVariation({ productId: pizza3.id, pizzaType: 2, size: 30 }),
       generateVariation({ productId: pizza3.id, pizzaType: 2, size: 40 }),
 
-      // // Остальные продукты
-      // generateVariation({ productId: 1 }),
-      // generateVariation({ productId: 2 }),
-      // generateVariation({ productId: 3 }),
-      // generateVariation({ productId: 4 }),
-      // generateVariation({ productId: 5 }),
-      // generateVariation({ productId: 6 }),
-      // generateVariation({ productId: 7 }),
-      // generateVariation({ productId: 8 }),
-      // generateVariation({ productId: 9 }),
-      // generateVariation({ productId: 10 }),
-      // generateVariation({ productId: 11 }),
-      // generateVariation({ productId: 12 }),
-      // generateVariation({ productId: 13 }),
-      // generateVariation({ productId: 14 }),
-      // generateVariation({ productId: 15 }),
-      // generateVariation({ productId: 16 }),
-      // generateVariation({ productId: 17 }),
+       // Остальные продукты
+      generateVariation({ productId: 1 }),
+      generateVariation({ productId: 2 }),
+      generateVariation({ productId: 3 }),
+      generateVariation({ productId: 4 }),
+      generateVariation({ productId: 5 }),
+      generateVariation({ productId: 6 }),
+      generateVariation({ productId: 7 }),
+      generateVariation({ productId: 8 }),
+      generateVariation({ productId: 9 }),
+      generateVariation({ productId: 10 }),
+      generateVariation({ productId: 11 }),
+      generateVariation({ productId: 12 }),
+      generateVariation({ productId: 13 }),
+      generateVariation({ productId: 14 }),
+      generateVariation({ productId: 15 }),
+      generateVariation({ productId: 16 }),
+      generateVariation({ productId: 17 }),
     ],
   })
 
-
 }
-
-
 
 async function down() {
   await prisma.$executeRaw`TRUNCATE TABLE "User" RESTART IDENTITY CASCADE`;
   await prisma.$executeRaw`TRUNCATE TABLE "Category" RESTART IDENTITY CASCADE`;
   await prisma.$executeRaw`TRUNCATE TABLE "Product" RESTART IDENTITY CASCADE`;
   await prisma.$executeRaw`TRUNCATE TABLE "Variation" RESTART IDENTITY CASCADE`;
+  await prisma.$executeRaw`TRUNCATE TABLE "Ingredient" RESTART IDENTITY CASCADE`;
 }
-
 
 async function main() {
   try {
@@ -155,7 +152,6 @@ async function main() {
     console.error(e)
   }
 }
-
 
 main().then(async () => {
   await prisma.$disconnect();
