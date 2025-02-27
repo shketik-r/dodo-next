@@ -1,4 +1,4 @@
-import { Prisma } from '@prisma/client';
+// import { Prisma } from '@prisma/client';
 import { categories, ingredients, products } from './contans';
 import { prisma } from './prisma-client';
 import { hashSync } from 'bcrypt';
@@ -13,7 +13,7 @@ const generateVariation = ({ productId, pizzaType, size }: { productId: number, 
     pizzaType,
     size,
     price: randomDecimalNumber(190, 600),
-  } as Prisma.VariationUncheckedCreateInput;
+  };
 }
 
 async function up() {
