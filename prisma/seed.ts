@@ -68,7 +68,6 @@ async function up() {
     },
   });
 
-
   const pizza2 = await prisma.product.create({
     data: {
       name: 'Сырная',
@@ -113,7 +112,7 @@ async function up() {
       generateVariation({ productId: pizza3.id, pizzaType: 2, size: 30 }),
       generateVariation({ productId: pizza3.id, pizzaType: 2, size: 40 }),
 
-       // Остальные продукты
+      // Остальные продукты
       generateVariation({ productId: 1 }),
       generateVariation({ productId: 2 }),
       generateVariation({ productId: 3 }),
@@ -134,6 +133,29 @@ async function up() {
     ],
   })
 
+  await prisma.cart.createMany({
+    data: [
+      {
+        userId: 2,
+        totalAmount: 0,
+        token: '222222'
+      }
+    ]
+  })
+
+  await prisma.cartItem.create({
+    data:
+    {
+      variationId: 1,
+      cartId: 1,
+      quantity: 2,
+      ingredients: {
+        connect: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }]
+      },
+    },
+
+  })
+
 }
 
 async function down() {
@@ -142,6 +164,8 @@ async function down() {
   await prisma.$executeRaw`TRUNCATE TABLE "Product" RESTART IDENTITY CASCADE`;
   await prisma.$executeRaw`TRUNCATE TABLE "Variation" RESTART IDENTITY CASCADE`;
   await prisma.$executeRaw`TRUNCATE TABLE "Ingredient" RESTART IDENTITY CASCADE`;
+  await prisma.$executeRaw`TRUNCATE TABLE "Cart" RESTART IDENTITY CASCADE`;
+  await prisma.$executeRaw`TRUNCATE TABLE "CartItem" RESTART IDENTITY CASCADE`;
 }
 
 async function main() {

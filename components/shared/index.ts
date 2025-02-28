@@ -10,4 +10,5 @@ export { RangeSlider } from './RangeSlider';
 export {CheckBoxFiltersGroup} from './CheckBoxFiltersGroup';
 export { ProductCard } from './ProductCard';
 export { ProductsGroupList } from './ProductsGroupList';
+export { SearchInput } from './SearchInput';
 
