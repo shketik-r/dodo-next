@@ -23,9 +23,21 @@ export const SearchInput: React.FC<Props> = ({ className }) => {
     setFocused(false);
   });
 
-  useDebounce(() => {
-    Api.products.search(searchQuery).then(items => setProducts(items));
-  },100, [searchQuery]);
+  useDebounce(async () => {
+    try {
+      const res = await Api.products.search(searchQuery);
+      setProducts(res);
+    } catch(e) {
+      console.error(e);
+    }
+    
+  }, 100, [searchQuery]);
+
+  const onClickItem = () => {
+    setFocused(false);
+    setSearchQuery('');
+    setProducts([]);
+  }
 
 
   return (
@@ -54,7 +66,11 @@ export const SearchInput: React.FC<Props> = ({ className }) => {
         )}>
 
           {products.map((product) => (
-            <Link href={`/product/${product.id}`} key={product.id} className='flex items-center gap-1 px-2 hover:bg-primary/10'>
+            <Link
+              onClick={() => onClickItem()}
+              href={`/product/${product.id}`}
+              key={product.id}
+              className='flex items-center gap-1 px-2 hover:bg-primary/10'>
               <img src={product.imageUrl} alt={product.name} className='rounded-sm h-8' width={32} height={32} />
               <div className="px-3 py-3  cursor-pointer">
                 {product.name}
