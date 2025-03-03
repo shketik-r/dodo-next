@@ -1,5 +1,10 @@
-// export default function ProductPage({params: {id} } : {params: {id: string}}) {
-//   return (
-//     <div>ProductPage - {id}</div>
-//   )
-// }
+
+type Params = Promise<{ id: string }>
+
+
+export default async function ProductPage(PageProps: { params: Params }) {
+  const { id } = await PageProps.params
+  return (
+    <div>ProductPage - {id}</div>
+  )
+}
