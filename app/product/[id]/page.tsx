@@ -10,9 +10,9 @@ export async function generateMetadata(PageProps: { params: Params }):Promise<Me
   }
 }
 
-export default async function ProductPage( ){
-
+export default async function ProductPage( PageProps: { params: Params } ){
+  const { id } = await PageProps.params
   return (
-    <div>ProductPage </div>
+    <div>ProductPage - {id}</div>
   )
 }
