@@ -1,11 +1,18 @@
-
+import type {Metadata} from "next";
 type Params = Promise<{ id: string }>
 
 
-export default async function ProductPage( props : { params:  Params }) {
-  const params = await props.params
-  const id = params.id
+export async function generateMetadata(PageProps: { params: Params }):Promise<Metadata> {
+  const { id } = await PageProps.params
+
+  return{
+      title: `Продукт: ${id}`,
+  }
+}
+
+export default async function ProductPage( ){
+
   return (
-    <div>ProductPage - {id}</div>
+    <div>ProductPage</div>
   )
 }
