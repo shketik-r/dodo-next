@@ -1,6 +1,6 @@
 'use client';
 
-import React, { Suspense } from 'react';
+import React from 'react';
 import { Title, RangeSlider, CheckBoxFiltersGroup } from '@/components/shared';
 import { Input } from '../ui/input';
 import { useIngredients, useFilters, useQueryFilters } from '@/hooks';
@@ -34,7 +34,7 @@ export const Filters: React.FC<Props> = ({ className }) => {
       <div className='flex flex-col gap-4'>
 
         {/* тип теста */}
-        <Suspense>
+      
           <CheckBoxFiltersGroup
             className='mb-5'
             title="Тип"
@@ -46,9 +46,9 @@ export const Filters: React.FC<Props> = ({ className }) => {
               { value: '2', text: 'Традиционное' },
             ]}
           />
-        </Suspense>
+       
         {/* размеры */}
-        <Suspense>
+    
           <CheckBoxFiltersGroup
             className='mb-5'
             title="Размеры"
@@ -62,13 +62,13 @@ export const Filters: React.FC<Props> = ({ className }) => {
 
             ]}
           />
-        </Suspense>
+      
       </div>
 
       <div className='mt-5 border-y border-y-neutral-100 py-6 pb-7'>
         <p className='font-bold mb-3'>Цена от и до:</p>
         <div className='flex gap-3 mb-5'>
-          <Suspense>
+       
             <Input
               type="number"
               placeholder="0"
@@ -77,8 +77,7 @@ export const Filters: React.FC<Props> = ({ className }) => {
               value={String(filters.prices.priceFrom)}
               onChange={(e) => filters.setPrices('priceFrom', Number(e.target.value))}
             />
-          </Suspense>
-          <Suspense>
+
             <Input
               type="number"
               min={100}
@@ -87,9 +86,9 @@ export const Filters: React.FC<Props> = ({ className }) => {
               value={String(filters.prices.priceTo)}
               onChange={(e) => filters.setPrices('priceTo', Number(e.target.value))}
             />
-          </Suspense>
+          
         </div>
-        <Suspense>
+       
           <RangeSlider
             min={0}
             max={1000}
@@ -97,9 +96,9 @@ export const Filters: React.FC<Props> = ({ className }) => {
             value={[filters.prices.priceFrom || 0, filters.prices.priceTo || 1000]}
             onValueChange={updatePrices}
           />
-        </Suspense>
+        
       </div>
-      <Suspense>
+     
         <CheckBoxFiltersGroup
           className='mt-5'
           title="Ингредиенты"
@@ -111,7 +110,7 @@ export const Filters: React.FC<Props> = ({ className }) => {
           selectedIds={filters.selectedIngredients}
           titleGroup="ingredients"
         />
-      </Suspense>
+    
     </div>
 
   );

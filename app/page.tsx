@@ -1,4 +1,5 @@
 import { Container, Title, TopBar, Filters, ProductsGroupList } from "@/components/shared";
+import { Suspense } from "react";
 
 
 export default function Home() {
@@ -15,7 +16,9 @@ export default function Home() {
         {/* фильтрация */}
         <div className="flex gap-[80px]">
           <div className="w-[250px]">
-            <Filters className="123" />
+            <Suspense>
+              <Filters className="123" />
+            </Suspense>
           </div>
 
           {/* список товаров */}
@@ -68,7 +71,7 @@ export default function Home() {
                 categoryId={1} />
               <ProductsGroupList
                 title="Завтрак"
-               
+
                 items={[
                   {
                     id: 1,
