@@ -1,5 +1,5 @@
 import { Container, Title, TopBar, Filters, ProductsGroupList } from "@/components/shared";
-
+import { Suspense } from "react";
 
 
 export default function Home() {
@@ -16,9 +16,9 @@ export default function Home() {
         {/* фильтрация */}
         <div className="flex gap-[80px]">
           <div className="w-[250px]">
-           
+            <Suspense fallback={<p>Loading feed...</p>}>
               <Filters className="123" />
-     
+            </Suspense>
           </div>
 
           {/* список товаров */}

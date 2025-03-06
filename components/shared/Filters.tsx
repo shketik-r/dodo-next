@@ -1,6 +1,6 @@
 'use client';
 
-import React, { Suspense } from 'react';
+import React from 'react';
 import { Title, RangeSlider, CheckBoxFiltersGroup } from '@/components/shared';
 import { Input } from '../ui/input';
 import { useIngredients, useFilters, useQueryFilters } from '@/hooks';
@@ -98,7 +98,7 @@ export const Filters: React.FC<Props> = ({ className }) => {
           />
         
       </div>
-      <Suspense>
+     
         <CheckBoxFiltersGroup
           className='mt-5'
           title="Ингредиенты"
@@ -110,7 +110,7 @@ export const Filters: React.FC<Props> = ({ className }) => {
           selectedIds={filters.selectedIngredients}
           titleGroup="ingredients"
         />
-    </Suspense>
+    
     </div>
 
   );
