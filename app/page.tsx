@@ -15,15 +15,13 @@ export default async function Home() {
     }
   });
 
-
   return (
     <>
-
       <Container className="mt-10">
         <Title text="Все пиццы" size="lg" className="font-extrabold" />
       </Container>
 
-      <TopBar categories={categories}  />
+      <TopBar categories={categories.filter((category) => category.products.length > 0)}  />
 
       <Container className="mt-10 pb-14">
         {/* фильтрация */}
@@ -37,8 +35,6 @@ export default async function Home() {
           {/* список товаров */}
           <div className="flex-1">
             <div className="flex flex-col gap-16">
-
-
               {
                 categories.map((category) => (
                   category.products.length > 0 && (
@@ -48,18 +44,13 @@ export default async function Home() {
                       products={category.products}
                       categoryId={category.id}
                     />
-
                   ))
                 )
             }
-
-
             </div>
           </div>
         </div>
-
       </Container>
-
     </>
   );
 }
