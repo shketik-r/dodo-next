@@ -3,6 +3,7 @@ import { Product } from '@prisma/client';
 import { DialogContent } from '@radix-ui/react-dialog';
 import React from 'react';
 import { Title } from '../Title';
+import { cn } from '@/lib/utils';
 
 interface Props {
   product: Product;
@@ -13,7 +14,7 @@ export const ChooseProductModal: React.FC<Props> = ({ className }) => {
   return (
     <>
       <Dialog>
-        <DialogContent className='p-0 w-[1060px] max-w-[1060px] min-h-[500px] bg-white overflow-hidden'>
+        <DialogContent className={cn('p-0 w-[1060px] max-w-[1060px] min-h-[500px] bg-white overflow-hidden' , className)}>
           <Title text="Выберите продукт"></Title>
         </DialogContent>
       </Dialog>
