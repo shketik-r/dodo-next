@@ -84,7 +84,6 @@ export const CheckBoxFiltersGroup: React.FC<Props> = ({
             key={String(item.value)}
             endAdornment={item.endAdornment}
             titleGroup={titleGroup}
-
           />
         ))}
       </div>

@@ -98,7 +98,7 @@ export const Filters: React.FC<Props> = ({ className }) => {
           />
         
       </div>
-     
+    
         <CheckBoxFiltersGroup
           className='mt-5'
           title="Ингредиенты"

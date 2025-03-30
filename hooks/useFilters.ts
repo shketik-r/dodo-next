@@ -29,8 +29,6 @@ setSelectedIngredients: (value: string) => void;
 
 export const useFilters = ():ReturnProps => {
 
-
-
   const searchParams = useSearchParams() as unknown as Map<keyof QueryFilters, string>;
 
   const [selectedIngredients, { toggle: toggleIngredients }] = useSet(

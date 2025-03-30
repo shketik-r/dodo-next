@@ -16,7 +16,7 @@ export const FilterCheckbox: React.FC<FilterCheckboxProps> = ({
   endAdornment,
   onCheckedChange,
   checked,
-  titleGroup='',
+  titleGroup = '',
 }) => {
   return (
     <div className="flex items-center space-x-2">

@@ -1,18 +1,18 @@
 import { Container, ProductImage, Title, GroupVariants } from "@/components/shared";
 import { prisma } from "@/prisma/prisma-client";
 
-import type { Metadata } from "next";
+// import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 type Params = Promise<{ id: string }>
 
 
-export async function generateMetadata(PageProps: { params: Params }): Promise<Metadata> {
-  const { id } = await PageProps.params
+// export async function generateMetadata(PageProps: { params: Params }): Promise<Metadata> {
+//   const { id } = await PageProps.params
 
-  return {
-    title: `Продукт: ${id}`,
-  }
-}
+//   return {
+//     title: `Продукт: ${id}`,
+//   }
+// }
 
 export default async function ProductPage(PageProps: { params: Params }) {
   const { id } = await PageProps.params;
