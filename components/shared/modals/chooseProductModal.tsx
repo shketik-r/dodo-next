@@ -17,10 +17,10 @@ const router = useRouter();
   return (
     <>
       <Dialog open={Boolean(product)} onOpenChange={() => router.back()}>
-        <DialogTitle>
+        <DialogTitle className='visibility-hidden'>
         {product.name}
         </DialogTitle>
-        <DialogDescription>{product.name}</DialogDescription>
+        <DialogDescription className='visibility-hidden'>{product.name}</DialogDescription>
         <DialogContent className={cn('p-0 w-[1060px] max-w-[1060px] min-h-[500px] bg-white overflow-hidden', className)}>
          <ChooseProductForm name={product.name} imageUrl={product.imageUrl} ingredients={[]} />
         </DialogContent>
